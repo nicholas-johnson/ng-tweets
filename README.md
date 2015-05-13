@@ -32,7 +32,7 @@ First go here <https://twitter.com/settings/widgets/new> and create a new widget
 
 ### Using the service
 
-Inject "ngTweets" into your app. The module provides a service called tweets. call tweets.get and pass it your widget ID. You will get back an $http promise object which you can interact with in the usual way.
+Inject "ngTweets" into your app. The module provides a service called tweets. Call tweets.get and pass it your widget ID. You will get back an $http promise object which you can interact with in the usual way.
 
 ### The controller:
 
@@ -57,7 +57,7 @@ Inject "ngTweets" into your app. The module provides a service called tweets. ca
 
 ## Sample response
 
-    You will receive an object containing a header and a array with a maximum of 20 tweets.
+You will receive an object containing a header, and an array with a maximum of 20 tweets.
 
     {
       headers: {
@@ -113,8 +113,9 @@ Inject "ngTweets" into your app. The module provides a service called tweets. ca
 
 ## Error handling
 
-The header object contains information about any errors that occurred upstream. Downstream errors are currently.
+The header object contains information about any errors that occurred upstream. The header status would normally be 200. Anything else is an error.
 
+Downstream errors are currently not handled. Please feel free to submit a patch for this.
 
 
 ## Contributing
@@ -123,7 +124,7 @@ Please feel free to contribute by forking this repository and submitting a pull 
 
 ## Browser compatibility
 
-IE9+ only please. Mobile support not guaranteed.
+IE9+ only please. It should work everywhere Angular 1.3.1 works.
 
 ## Likelihood of failure
 
@@ -131,9 +132,9 @@ Because this service works by scraping HTML, it will fail if the HTML changes. T
 
 ## Warranty
 
-This plugin uses a hack. My assumption is that this hack is likely to remain available as long as older browser require JSONP to access the API. However I can make no guarantees on this. This is not an official twitter API, there is no uptime guarantee.
+This plugin is a dirty low down (albeit functional) hack. My assumption is that this hack is likely to remain available as long as older browsers require JSONP to access the API. However I can make no guarantees on this. This is not an official twitter API, there is no uptime guarantee, Twitter can turn it off at any time.
 
-Caution is advised. Use at your discretion. I take no responsibility for any problems you may encounter.
+Caution is advised. Use at your discretion. I take no responsibility for any problems of any kind you may encounter, technical, legal, spiritual, military, etc.
 
 ## License
 
