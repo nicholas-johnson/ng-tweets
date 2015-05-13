@@ -1,0 +1,13 @@
+doctype html
+html( ng-app='app' )
+  head
+    title Tweets Demo
+    script( src='../../public/components/angular/angular.js' )
+    script( src='../../build/js/ng-tweets.js' )
+    script( src='./demo.js' )
+    link( rel="stylesheet" type='text/css' href='./demo.css' )
+    link( rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" )
+  body( ng-controller="twitterController" )
+    ul
+      li( ng-repeat='tweet in tweets' )
+        pre {{tweet | json }}

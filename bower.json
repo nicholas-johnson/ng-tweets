@@ -1,0 +1,17 @@
+{
+  "name": "ng-drag-to-order",
+  "main": "ngDragOrder.js",
+  "version": "0.0.1",
+  "homepage": "https://github.com/forwardadvance/ngDraggable",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "latest",
+    "angular-mocks": "latest"
+  }
+}
