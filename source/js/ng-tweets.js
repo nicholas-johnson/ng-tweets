@@ -1,7 +1,7 @@
-function appendTransform(defaults, transform) {
+var appendTransform = function(defaults, transform) {
   defaults = angular.isArray(defaults) ? defaults : [defaults];
   return defaults.concat(transform);
-}
+};
 
 var parse = function(data) {
   var response = {
