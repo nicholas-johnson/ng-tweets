@@ -12,7 +12,7 @@ This module works by scraping the official twitter widget and parsing the result
 
 The official twitter widget makes a JSONP call to an API. It does this using a public widget id which allows access to the tweet stream from a single pre-chosen user.
 
-This API call returns a JSON object full of HTML which the widget normally displays in an iFrame.
+This API call returns a JSON object full of HTML which the widget normally displays in an iframe.
 
 This service pulls that stream, extracts the HTML and reverse engineers it back into a JSON object which can be saved in scope.
 
