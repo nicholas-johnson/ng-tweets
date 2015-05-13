@@ -122,6 +122,10 @@ Downstream errors are currently not handled. Please feel free to submit a patch 
 
 Please feel free to contribute by forking this repository and submitting a pull request. Contributors will be credited in this Readme.
 
+## About me
+
+I'm an Angular developer and trainer working out of Brighton, England. You can find Angular lessons on my website here <http://www.nicholasjohnson.com>
+
 ## Browser compatibility
 
 IE9+ only please. It should work everywhere Angular 1.3.1 works.
