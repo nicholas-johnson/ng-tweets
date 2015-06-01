@@ -22,7 +22,7 @@ Once the tweet stream is in scope you can do what you like with it.
 
 You can find a working plunkr here.
 
-<http://plnkr.co/edit/fZ03xMt31pnmp4hoa6D9?p=preview>
+<http://plnkr.co/edit/gLkDBn?p=preview>
 
 ## Kudos
 
