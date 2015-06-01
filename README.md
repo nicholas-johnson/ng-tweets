@@ -18,6 +18,12 @@ This service pulls that stream, extracts the HTML and reverse engineers it back 
 
 Once the tweet stream is in scope you can do what you like with it.
 
+## Can I get a demo?
+
+You can find a working plunkr here.
+
+<http://plnkr.co/edit/fZ03xMt31pnmp4hoa6D9?p=preview>
+
 ## Kudos
 
 Kudos to Jason Mayes for the idea <http://www.jasonmayes.com/projects/twitterApi/>
