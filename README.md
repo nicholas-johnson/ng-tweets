@@ -1,6 +1,6 @@
 # Angular Tweets
 
-Get a tweet stream clientside without exposing a private auth token, and without any serverside code. 
+Get a tweet stream client-side without exposing a private auth token, and without any server-side code. 
 
 The stream will be provided to you via an ordinary $http promise object.
 
@@ -46,7 +46,7 @@ Inject "ngTweets" into your app. The module provides a service called tweets. Ca
       .controller('twitterController', function($scope, tweets) {
         tweets.get({
           widgetId: '123456'
-        }).success(function(data) {
+        }).then(function(data) {
           $scope.feed = data;
         });
       });
