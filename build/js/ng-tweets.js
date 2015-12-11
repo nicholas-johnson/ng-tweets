@@ -3,12 +3,50 @@
 // MIT licence
 
 (function() {
-var appendTransform = function(defaults, transform) {
+"use strict";
+
+angular.module('ngTweets', [])
+  .service('tweets', ["$http", function($http) {
+    var service = this;
+    this.get = function(config) {
+      return $http({
+        url: url(config.widgetId, config.lang),
+        method: 'JSONP',
+        transformResponse: appendTransform($http.defaults.transformResponse, function(value) {
+          return parse(value);
+        })
+      });
+    };
+    this.getTweets = function(config) {
+      return service.get(config)
+        .then(trim)
+    }
+  }]);
+
+function trim(request) {
+  return request.data.tweets
+}
+
+function url(id, lang) {
+  var url = [
+    'http://cdn.syndication.twimg.com/widgets/timelines/',
+    id,
+    '?&lang=',
+    (lang || 'en'),
+    '&callback=JSON_CALLBACK',
+    '&suppress_response_codes=true&rnd=',
+    Math.random()
+  ].join('');
+  return url;
+}
+
+
+function appendTransform(defaults, transform) {
   defaults = angular.isArray(defaults) ? defaults : [defaults];
   return defaults.concat(transform);
 };
 
-var parse = function(data) {
+function parse(data) {
   var response = {
     headers: data.headers,
     tweets: []
@@ -26,8 +64,9 @@ var parse = function(data) {
       tweet = {};
       tweet.retweet = (el.getElementsByClassName('retweet-credit').length > 0);
       tweet.id = el.getAttribute('data-tweet-id');
-      tweet.html = el.getElementsByClassName('e-entry-title')[0].innerHTML;
-      tweet.text = el.getElementsByClassName('e-entry-title')[0].innerText;
+      tmp = el.getElementsByClassName('e-entry-title')[0];
+      tweet.html = tmp.innerHTML;
+      tweet.text = tmp.textContent || tmp.innerText; // IE8 doesn't support textContent
       tmp = el.getElementsByClassName('p-author')[0];
       tweet.author = {
         url: tmp.getElementsByClassName('profile')[0].getAttribute('href'),
@@ -45,32 +84,5 @@ var parse = function(data) {
   }
   return response;
 };
-
-angular.module('ngTweets', [])
-  .service('tweets', ["$http", function($http) {
-    var service = {
-      get: function(config) {
-        var url = [
-          'http://cdn.syndication.twimg.com/widgets/timelines/',
-          config.widgetId,
-          '?&lang=',
-          (config.lang || 'en'),
-          '&callback=JSON_CALLBACK',
-          '&suppress_response_codes=true&rnd=',
-          Math.random()
-        ].join('');
-
-        return $http({
-          url: url,
-          method: 'JSONP',
-          transformResponse: appendTransform($http.defaults.transformResponse, function(value) {
-            return parse(value);
-          })
-        });
-      }
-    };
-    return service;
-  }]);
-
 
 })();
