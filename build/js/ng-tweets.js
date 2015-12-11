@@ -3,7 +3,7 @@
 // MIT licence
 
 (function() {
-"use strict";
+'use strict';
 
 angular.module('ngTweets', [])
   .service('tweets', ["$http", function($http) {
@@ -19,16 +19,16 @@ angular.module('ngTweets', [])
     };
     this.getTweets = function(config) {
       return service.get(config)
-        .then(trim)
-    }
+        .then(trim);
+    };
   }]);
 
 function trim(request) {
-  return request.data.tweets
+  return request.data.tweets;
 }
 
 function url(id, lang) {
-  var url = [
+  return [
     'http://cdn.syndication.twimg.com/widgets/timelines/',
     id,
     '?&lang=',
@@ -37,14 +37,13 @@ function url(id, lang) {
     '&suppress_response_codes=true&rnd=',
     Math.random()
   ].join('');
-  return url;
 }
 
 
 function appendTransform(defaults, transform) {
   defaults = angular.isArray(defaults) ? defaults : [defaults];
   return defaults.concat(transform);
-};
+}
 
 function parse(data) {
   var response = {
@@ -83,6 +82,6 @@ function parse(data) {
     }
   }
   return response;
-};
+}
 
 })();
