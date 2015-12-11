@@ -1,8 +1,8 @@
 {
   "name": "ng-tweets",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Get a tweet stream clientside without an auth token. Works by scraping the official twitter widget.",
-  "main": "index.js",
+  "main": "build/js/ng-tweets.js",
   "directories": {
     "doc": "doc",
     "test": "test"
@@ -15,6 +15,7 @@
     "url": "ssh://git@github.com/forwardadvance/ng-tweets.git"
   },
   "author": "Nicholas Johnson",
+  "email": "nicholas@forwardadvance.com",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/forwardadvance/ng-tweets/issues"
